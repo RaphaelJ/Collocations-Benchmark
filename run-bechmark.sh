@@ -11,8 +11,8 @@ for program in colocations-cpp colocations-hs; do
         echo "  n=" $n
         for sample in $( seq 1 $samples ); do
             echo "    sample="$sample
-            time=$( head -n $n "$basedir/data/input.txt" | /usr/bin/time -f "%e    %M" "$basedir/$program" 2>&1 1>/dev/null )
-            printf "%-20s%-20s%-20s\n" $program $n "$time" >> "$basedir/data/$program-times.csv"
+            timez=$( head -n $n "$basedir/data/input.txt" | time -f "%e    %M" "$basedir/$program" 2>&1 1>/dev/null )
+            printf "%-20s%-20s%-20s\n" $program $n "$timez" >> "$basedir/data/$program-times.csv"
         done
     done
 done
